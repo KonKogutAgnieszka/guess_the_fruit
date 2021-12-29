@@ -55,12 +55,14 @@ class Game {
   }
 
   drawFlower(number){
-    const image = document.createElement('img');
-    image.src = flowers[number];
-    document.querySelector('.flower').appendChild(image);
-    
-    
+    const flower = document.querySelector('.flower')
+    if(number<flowers.length){
+     flower.src=flowers[number];
+    }else{
+      //gameover
     }
+    
+  }
   
 
 guess(letter,e){
@@ -75,7 +77,6 @@ guess(letter,e){
       this.drawFlower(this.petal);
       console.log("PUDŁO");
     }else{
-      this.petal = flowers.length-1;
       console.log("DEAD") // mechanizm game over dodać i przeładować stronę 
       }
     }

@@ -1,8 +1,9 @@
 export class Fruit {
-  constructor(text) {
+  constructor(text,img) {
       this.text = text;
       this.guessed=[];
   }  
+
 
 getContent() {
     let content = '';
@@ -21,6 +22,7 @@ guess(letter){
         return false;
     }
     this.guessed.push(letter);
+
     return true;
 }
 

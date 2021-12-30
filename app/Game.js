@@ -1,9 +1,9 @@
 import { Fruit } from './Fruit.js';
 const flowers = ['img/1.png','img/2.png','img/3.png','img/4.png','img/5.png','img/6.png','img/7.png','img/8.png','img/9.png',]
-
+const flower = document.querySelector('.flower')
 
 class Game {
-
+  currentimage = '';
   petal=0;
 
   fruits=[{
@@ -13,28 +13,30 @@ class Game {
   },
   {
     text:'carambola',
-    hint:'star fruit'
+    hint:'star fruit',
+    img:'img/fr_carambola.png'
 
   },
   {
     text:'pomegranate',
-    hint:'full of red seeds'
+    hint:'full of red seeds',
+    img:'img/fr_pomegranate.png'
 
   },
   {
     text:'persimmon',
-    hint:'looks like orange tomato'
-
+    hint:'looks like orange tomato',
+    img:'img/fr_persimmon.png'
   },
   {
     text:'pitaya',
-    hint:'fruit of cactus'
-
+    hint:'fruit of cactus',
+    img:'img/fr_dragonfruit.png'
   },
   {
     text:'litchi',
-    hint:' symoblises happiness and good fortune'
-
+    hint:' symoblises happiness and good fortune',
+    img:'img/fr_litchi.png'
   },
 ];
 
@@ -49,13 +51,14 @@ class Game {
         this.wordWrapper = wordWrapper;
         this.outputWrapper = outputWrapper;
 
-        const {text, hint} = this.fruits[Math.floor(Math.random()*this.fruits.length)]
+        const {text, hint, img} = this.fruits[Math.floor(Math.random()*this.fruits.length)]
         this.hintWrapper.innerHTML = hint;
         this.fruit = new Fruit(text);
+        this.currentimage = img;
   }
 
   drawFlower(number){
-    const flower = document.querySelector('.flower')
+    
     if(number<flowers.length){
      flower.src=flowers[number];
     }else{
@@ -75,13 +78,11 @@ guess(letter,e){
     if(this.petal<flowers.length){
       this.petal += 1; 
       this.drawFlower(this.petal);
-      console.log("PUDŁO");
     }else{
-      console.log("DEAD") // mechanizm game over dodać i przeładować stronę 
+      //gameover 
       }
     }
     
- console.log(this.petal)
 }
 
 drawLetters(){
@@ -97,7 +98,11 @@ drawLetters(){
 drawFruit(){
   const content = this.fruit.getContent();
   this.wordWrapper.innerHTML = content;
-}
+  if(!content.includes('_')){
+      flower.src = this.currentimage;
+    }
+  }
+
 
 
 

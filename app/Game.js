@@ -61,29 +61,29 @@ class Game {
     
     if(number<flowers.length){
      flower.src=flowers[number];
-    }else{
-      //gameover
+    }else if(number===flowers.length){
+      this.gameOver();
     }
     
   }
   
+gameOver(){
+  this.hintWrapper.innerHTML = 'game over :(';
+  setTimeout(()=>{window.location.reload()},3000);
+
+}
 
 guess(letter,e){
   e.target.disabled= true;
   if(this.fruit.guess(letter)){
   this.drawFruit();
   }
-  else{
-    
-    if(this.petal<flowers.length){
+  else if(this.petal<flowers.length){
       this.petal += 1; 
       this.drawFlower(this.petal);
-    }else{
-      //gameover 
-      }
     }
-    
-}
+  }
+
 
 drawLetters(){
   for (let i=0;i<26;i++){

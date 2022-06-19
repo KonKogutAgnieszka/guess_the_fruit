@@ -22,10 +22,6 @@ HTML CSS JAVASCRIPT
 Project is: _complete_ 
 
 
-## Room for Improvement
-Include areas you believe need improvement / could be improved. Also add TODOs for future development.
-
-
 ## Acknowledgements
 Give credit here.
 - This project was based on [this course](https://www.udemy.com/course/programowanie-obiektowe-w-javascript/).

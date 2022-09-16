@@ -23,6 +23,5 @@ Project is: _complete_
 
 
 ## Acknowledgements
-Give credit here.
 - This project was based on [this course](https://www.udemy.com/course/programowanie-obiektowe-w-javascript/).
 
